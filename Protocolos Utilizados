@@ -1,1 +1,23 @@
 
+
+==============================================================================
+ 7. PROTOCOLOS UTILIZADOS
+==============================================================================
+ 
++---------------------------+----------------------------------------+----------------------------------------+-------------------------------------------------+
+| Protocolo / Tecnologia    | Donde se aplica                        | Configuracion                          | Funcion                                         |
++---------------------------+----------------------------------------+----------------------------------------+-------------------------------------------------+
+| VLAN                      | Todos los switches                     | VLAN 10,20,30,40,50,60,70,88,99        | Segmentar el trafico por area                   |
+| 802.1Q (trunk)            | Enlaces entre switches y hacia routers | switchport mode trunk                  | Transportar varias VLANs por un enlace          |
+| Router-on-a-Stick         | R1-CORE e0/0 / R2 e0/0 y e0/1          | Subinterfaces dot1Q                    | Enrutamiento entre VLANs                        |
+| VTP v2                    | SWM1 (server); SWM2, SWAC1-3 (client)  | Dominio ITLA                           | Propagar las VLANs                              |
+| Rapid-PVST (STP)          | SWM1 y SWM2                            | SWM1 root primary, SWM2 root secondary | Evitar bucles, convergencia rapida              |
+| EtherChannel (LACP)       | SWM1 <-> SWM2                          | Port-channel 1, e0/1-3, modo active    | Agregar ancho de banda y redundancia            |
+| PortFast                  | Puertos access hacia PCs               | spanning-tree portfast                 | Levantar puertos sin espera de STP              |
+| HSRP                      | R1-CORE y R2 (subinterfaces)           | Prioridad 110, preempt                 | Gateway virtual por VLAN                        |
+| OSPF                      | R1-CORE y R2                           | Proceso 1, area 0                      | Enrutamiento dinamico IPv4                      |
+| Ruta estatica por defecto | R1-CORE                                | 0.0.0.0/0 via 203.0.113.1              | Salida hacia el ISP                             |
+| DHCP (cliente)            | R1-CORE e0/2                           | ip address dhcp                        | Obtener IP del ISP                              |
+| IPv6                      | Routers y hosts                        | Direccionamiento 2001:25:22::/48       | Doble pila (sin protocolo de enrutamiento IPv6) |
+| ACL extendidas            | R1-CORE y R2                           | Ver seccion 9                          | Filtrar trafico entre VLANs                     |
++---------------------------+----------------------------------------+----------------------------------------+-------------------------------------------------+
