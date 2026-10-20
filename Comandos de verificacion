@@ -1,0 +1,27 @@
+
+==============================================================================
+ 11. COMANDOS DE VERIFICACION
+==============================================================================
+ 
+ 
+Switches:
+ show vlan brief
+ show vtp status
+ show interfaces trunk
+ show etherchannel summary
+ show spanning-tree summary
+ 
+Routers:
+ show ip interface brief
+ show ipv6 interface brief
+ show standby brief
+ show ip ospf neighbor
+ show ip route
+ show access-lists
+ show running-config
+ 
+PCs (VPCS):
+ show ip
+ ping <gateway>
+ 
+ 
