@@ -1,1 +1,23 @@
 
+
+==============================================================================
+ 1. DISPOSITIVOS
+==============================================================================
+ 
++-----------------------------------------+---------------+--------------------------------------------------+
+| Dispositivo                             | Tipo          | Rol                                              |
++-----------------------------------------+---------------+--------------------------------------------------+
+| R1-CORE                                 | Router        | Core, salida al ISP, gateway VLAN 10/20/30/40/99 |
+| R2                                      | Router        | Gateway VLAN 50/60/70/88, conecta SWA13 y SW     |
+| SWM1                                    | Switch capa 2 | Distribucion, VTP server, STP root primary       |
+| SWM2                                    | Switch capa 2 | Distribucion, VTP client, STP root secondary     |
+| SWAC1                                   | Switch capa 2 | Acceso Docentes (DOC1)                           |
+| SWAC2                                   | Switch capa 2 | Acceso Estudiantes (EST1)                        |
+| SWAC3                                   | Switch capa 2 | Acceso Gestion (GES1)                            |
+| SWA13                                   | Switch capa 2 | Acceso Academicos / Finanzas (ACA1, FIN1)        |
+| SW                                      | Switch capa 2 | Acceso Datacenter (SERVICIOS)                    |
+| ISP                                     | Nube          | Salida a internet                                |
+| DOC1, EST1, GES1, ACA1, FIN1, SERVICIOS | PC / host     | Equipos finales                                  |
++-----------------------------------------+---------------+--------------------------------------------------+
+ 
+==============================================================================
