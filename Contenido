@@ -1,1 +1,13 @@
-
+ CONTENIDO
+   1. Dispositivos
+   2. Enlaces
+   3. VLANs
+   4. Direccionamiento IP de routers (IPv4 / IPv6 / HSRP)
+   5. Direccionamiento IP de hosts
+   6. Puertos de switches (access / trunk)
+   7. Protocolos utilizados
+   8. Enrutamiento (OSPF, rutas estaticas, tablas de enrutamiento)
+   9. Listas de acceso (ACL)
+  10. Comandos utilizados por dispositivo
+  11. Comandos de verificacion
+  12. Notas
