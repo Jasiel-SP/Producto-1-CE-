@@ -1,0 +1,86 @@
+==============================================================================
+ R1-CORE
+==============================================================================
+ 
+enable
+configure terminal
+ipv6 unicast-routing
+ 
+interface e0/0
+ duplex full
+ no shutdown
+ exit
+ 
+interface e0/0.10
+ encapsulation dot1Q 10
+ ip address 172.22.0.2 255.255.248.0
+ ipv6 address 2001:25:22:1::2/64
+ standby 10 ip 172.22.0.1
+ standby 10 priority 110
+ standby 10 preempt
+ exit
+ 
+interface e0/0.20
+ encapsulation dot1Q 20
+ ip address 172.22.8.2 255.255.255.0
+ ipv6 address 2001:25:22:2::2/64
+ standby 20 ip 172.22.8.1
+ standby 20 priority 110
+ standby 20 preempt
+ exit
+ 
+interface e0/0.30
+ encapsulation dot1Q 30
+ ip address 172.22.9.2 255.255.255.224
+ ipv6 address 2001:25:22:3::2/64
+ standby 30 ip 172.22.9.1
+ standby 30 priority 110
+ standby 30 preempt
+ exit
+ 
+interface e0/0.40
+ encapsulation dot1Q 40
+ ip address 172.22.9.34 255.255.255.224
+ ipv6 address 2001:25:22:4::2/64
+ standby 40 ip 172.22.9.33
+ standby 40 priority 110
+ standby 40 preempt
+ exit
+ 
+interface e0/0.99
+ encapsulation dot1Q 99
+ ip address 172.22.9.66 255.255.255.240
+ ipv6 address 2001:25:22:5::2/64
+ standby 99 ip 172.22.9.65
+ standby 99 priority 110
+ standby 99 preempt
+ exit
+ 
+! Enlace hacia el ISP
+interface e0/2
+ ip address dhcp
+ no shutdown
+ exit
+ 
+! Enlace serial hacia R2
+interface s1/0
+ ip address 172.22.11.81 255.255.255.252
+ ipv6 address 2001:25:22:a::1/64
+ no shutdown
+ exit
+ 
+router ospf 1
+ router-id 1.1.1.1
+ network 172.22.0.0 0.0.7.255 area 0
+ network 172.22.8.0 0.0.0.255 area 0
+ network 172.22.9.0 0.0.0.31 area 0
+ network 172.22.9.32 0.0.0.31 area 0
+ network 172.22.9.64 0.0.0.15 area 0
+ network 172.22.11.80 0.0.0.3 area 0
+ default-information originate
+ exit
+ 
+ip route 0.0.0.0 0.0.0.0 203.0.113.1
+ 
+end
+write memory
