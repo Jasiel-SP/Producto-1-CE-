@@ -1,0 +1,38 @@
+
+==============================================================================
+ SWA13  (Academicos / Finanzas - ACA1 y FIN1)
+==============================================================================
+ 
+enable
+configure terminal
+vlan 50
+ name Academicos
+vlan 60
+ name Finanzas
+exit
+ 
+! e0/0 -> R2
+interface e0/0
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+ exit
+ 
+! ACA1 -> VLAN 50
+interface e0/1
+ switchport mode access
+ switchport access vlan 50
+ spanning-tree portfast
+ no shutdown
+ exit
+ 
+! FIN1 -> VLAN 60
+interface e0/2
+ switchport mode access
+ switchport access vlan 60
+ spanning-tree portfast
+ no shutdown
+ exit
+ 
+end
+write memory
