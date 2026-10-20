@@ -1,0 +1,26 @@
+
+==============================================================================
+ SWAC3  (acceso Gestion - GES1)
+==============================================================================
+ 
+enable
+configure terminal
+vtp domain ITLA
+vtp mode client
+ 
+interface range e0/0 - 1
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ no shutdown
+ exit
+ 
+interface e3/0
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+ no shutdown
+ exit
+ 
+end
+write memory
+ 
